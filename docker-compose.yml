@@ -33,7 +33,7 @@ services:
       restart: unless-stopped
       volumes:
         - ./prometheus.yml:/etc/prometheus/prometheus.yml:Z   # <----- :Z is needed for SELinux, you might want to remove that
-        - prometheus_data:/prometheus:Z
+        - prometheus_data:/prometheus:Z   # <----- :Z is needed for SELinux, you might want to remove that
       command:
         - '--config.file=/etc/prometheus/prometheus.yml'
         - '--storage.tsdb.path=/prometheus'
